@@ -1,7 +1,7 @@
 <template>
      <v-data-table
       :headers="headers"
-      :items="users"
+      :items="students"
     >
     <template v-slot:[`item.edit`]="{ item }">
         <v-btn color="success" @click="editItem(item)"> Edit </v-btn>
@@ -30,29 +30,29 @@ export default {
     }
  },
  computed:{
-     users(){
-         return this.$store.state.users.data;
+     students(){
+         return this.$store.state.students.data;
      }
  },
  async fetch(){
      this.$store.commit(
-         "users/storeData",
-         (await this.$axios.get("http://localhost:8080/users/")).data
+         "students/storeData",
+         (await this.$axios.get("http://localhost:8080/students/")).data
      )
  },
  methods:{
      async deleteItem(id){
-         await this.$axios.delete("http://localhost:8080/users/" + id)
+         await this.$axios.delete("http://localhost:8080/students/" + id)
          this.$store.commit(
-         "users/storeData",
-         (await this.$axios.get("http://localhost:8080/users/")).data
+         "students/storeData",
+         (await this.$axios.get("http://localhost:8080/students/")).data
      )
      },
-     async editItem(user){
-         this.$store.commit("user/storeId", user.id);
-         this.$store.commit("user/storeName", user.name);
-         this.$store.commit("user/storeEmail", user.email);
-         this.$store.commit("user/storePassword", user.password);
+     async editItem(student){
+         this.$store.commit("students/storeId", student.id);
+         this.$store.commit("students/storeName", student.name);
+         this.$store.commit("students/storeEmail", student.email);
+         this.$store.commit("students/storePassword", student.password);
      }
  }
 }

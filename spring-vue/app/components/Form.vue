@@ -16,52 +16,52 @@ export default {
     computed:{
         id:{
             get(){
-                return this.$store.state.user.id;
+                return this.$store.state.student.id;
             },
             set(value){
-                this.$store.commit("user/storeId", value)
+                this.$store.commit("student/storeId", value)
             }
         },
         name:{
             get(){
-                return this.$store.state.user.name;
+                return this.$store.state.student.name;
             },
             set(value){
-                this.$store.commit("user/storeName", value)
+                this.$store.commit("student/storeName", value)
             }
         },
         email:{
             get(){
-                return this.$store.state.user.email;
+                return this.$store.state.student.email;
             },
             set(value){
-                this.$store.commit("user/storeEmail", value)
+                this.$store.commit("student/storeEmail", value)
             }
         },
         password:{
             get(){
-                return this.$store.state.user.password;
+                return this.$store.state.student.password;
             },
             set(value){
-                this.$store.commit("user/storePassword", value)
+                this.$store.commit("student/storePassword", value)
             }
         }
     },
     methods:{
-        async submit(user){
-            if(user.id){
-                await this.$axios.put("http://localhost:8080/users/"+ user.id, user);
+        async submit(student){
+            if(student.id){
+                await this.$axios.put("http://localhost:8080/students/"+ student.id, student);
             }
             else{
-                await this.$axios.put("http://localhost:8080/users/", user);
+                await this.$axios.put("http://localhost:8080/students/", student);
             }
             await this.restForm({id:0, name:"", email:"", password:""});
         },
-        restForm(user){
-            this.$store.commit("user/storeId", user.id);
-            this.$store.commit("user/storeName", user.name);
-            this.$store.commit("user/storeEmail", user.email);
-            this.$store.commit("user/storePassword", user.password);
+        restForm(student){
+            this.$store.commit("student/storeId", student.id);
+            this.$store.commit("student/storeName", student.name);
+            this.$store.commit("student/storeEmail", student.email);
+            this.$store.commit("student/storePassword", student.password);
         },
     },
 
