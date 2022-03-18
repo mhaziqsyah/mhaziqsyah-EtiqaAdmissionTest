@@ -37,15 +37,15 @@ export default {
  async fetch(){
      this.$store.commit(
          "users/storeData",
-         (await this.$axios.get("http://localhost:8080/users")).data
+         (await this.$axios.get("http://localhost:8080/users/")).data
      )
  },
  methods:{
      async deleteItem(id){
-         await this.$axios.delete("http://localhost:8080/users" + id)
+         await this.$axios.delete("http://localhost:8080/users/" + id)
          this.$store.commit(
          "users/storeData",
-         (await this.$axios.get("http://localhost:8080/users")).data
+         (await this.$axios.get("http://localhost:8080/users/")).data
      )
      },
      async editItem(user){
