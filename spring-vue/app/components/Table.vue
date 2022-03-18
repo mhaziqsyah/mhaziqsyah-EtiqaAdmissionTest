@@ -49,10 +49,10 @@ export default {
      )
      },
      async editItem(user){
-         this.$store.commit("users/storeId", user.id);
-         this.$store.commit("users/storeName", user.name);
-         this.$store.commit("users/storeEmail", user.email);
-         this.$store.commit("users/storePassword", user.password);
+         this.$store.commit("user/storeId", user.id);
+         this.$store.commit("user/storeName", user.name);
+         this.$store.commit("user/storeEmail", user.email);
+         this.$store.commit("user/storePassword", user.password);
      }
  }
 }

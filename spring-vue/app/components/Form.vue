@@ -13,7 +13,7 @@
 
 <script>
 export default {
-    data:{
+    computed:{
         id:{
             get(){
                 return this.$store.state.user.id;
@@ -55,7 +55,7 @@ export default {
             else{
                 await this.$axios.put("http://localhost:8080/users/", user);
             }
-            restForm({id:0, name:"", email:"", password:""});
+            await this.restForm({id:0, name:"", email:"", password:""});
         },
         restForm(user){
             this.$store.commit("user/storeId", user.id);
