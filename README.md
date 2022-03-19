@@ -57,6 +57,9 @@ docker run --name mysqldb -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=Etiq
 ```
 
 * Run Springboot Application
+ ```
+mvn spring-boot:run
+```
 
 # Authors 
 
