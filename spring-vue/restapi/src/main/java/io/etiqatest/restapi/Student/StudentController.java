@@ -1,4 +1,4 @@
-package io.etiqatest.restapi.User;
+package io.etiqatest.restapi.Student;
 
 import java.util.List;
 
@@ -15,36 +15,36 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/users")
-public class UserController {
+@RequestMapping("/students")
+public class StudentController {
     @Autowired
-    private UserRepository repository;
+    private StudentRepository repository;
 
     @GetMapping("/")
-    List<User> findAll() {
+    List<Student> findAll() {
         return repository.findAll();
     }
 
     @GetMapping("/{id}")
-    User findOne(@PathVariable int id) {
+    Student findOne(@PathVariable int id) {
         return repository.findById(id).orElse(null);
     }
 
     @PostMapping("/")
-    User create(@RequestBody User user) {
-        return repository.save(user);
+    Student create(@RequestBody Student student) {
+        return repository.save(student);
     }
 
     @PutMapping("/{id}")
-    User update(@PathVariable int id, @RequestBody User user) {
-        User oldUser = repository.findById(id).orElse(null);
-        oldUser.setName(user.getName());
-        oldUser.setEmail(user.getEmail());
-        oldUser.setPassword(user.getPassword());
-        return repository.save(oldUser);
+    Student update(@PathVariable int id, @RequestBody Student student) {
+        Student oldStudent = repository.findById(id).orElse(null);
+        oldStudent.setName(student.getName());
+        oldStudent.setEmail(student.getEmail());
+        oldStudent.setPassword(student.getPassword());
+        return repository.save(oldStudent);
     }
 
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping("/{id}")
     Integer destroy(@PathVariable int id) {
         repository.deleteById(id);
         return id;

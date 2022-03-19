@@ -1,4 +1,4 @@
-package io.etiqatest.restapi.User;
+package io.etiqatest.restapi.Student;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,7 +8,7 @@ import lombok.Data;
 
 @Entity
 @Data
-public class User {
+public class Student {
     @Id
     @GeneratedValue
     public int id;
