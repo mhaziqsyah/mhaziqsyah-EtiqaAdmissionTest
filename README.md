@@ -24,22 +24,39 @@ You may use datatables.js at your disposal.
 
 ### Dependencies
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+* OS version: Windows 10
+* Docker
 
 ### Installing
 
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+* Docker Download
+https://www.docker.com/products/docker-desktop/
+
 
 ### Executing program
 
 * How to run the program
 * Using GitBash run this command
+* Install NPM Dependencies
+```
+NPM Install
+```
+* Start the Program
  ```
 yarn start
 ```
+* Database setup
+* Run Powershell terminal
+* Check Docker Version
+ ```
+docker --v
+```
+* Create Database in Docker
+ ```
+docker run --name mysqldb -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=EtiqaTest -d -p 3306:3306 mysql
+```
 
+* Run Springboot Application
 
 # Authors 
 
