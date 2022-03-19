@@ -1,12 +1,13 @@
 <template>
     <v-form>
         <br>
-        <h2>Form</h2>
+        <h2>Student club Form</h2>
         <br>
         <v-text-field v-if="id" v-model="id" label="Id"></v-text-field>
-        <v-text-field v-model="name" label="Name"></v-text-field>
-        <v-text-field v-model="email" label="Email"></v-text-field>
-        <v-text-field v-model="password" label="Password"></v-text-field>
+        <v-text-field v-model="name" label="Student Name"></v-text-field>
+        <v-text-field v-model="club" label="Student's Club"></v-text-field>
+        <v-text-field v-model="email" label="Student Email"></v-text-field>
+        <v-text-field v-model="password" label="Password" type="password"></v-text-field>
     <v-btn @click="submit({id, name ,email, password})">{{id ? 'edit': 'Submit' }}</v-btn>
     </v-form>
 </template>
@@ -45,6 +46,14 @@ export default {
             set(value){
                 this.$store.commit("student/storePassword", value)
             }
+        },
+        club:{
+            get(){
+                return this.$store.state.student.club;
+            },
+            set(value){
+                this.$store.commit("student/storeClub", value)
+            }
         }
     },
     methods:{
@@ -55,12 +64,13 @@ export default {
             else{
                 await this.$axios.put("http://localhost:8080/students/", student);
             }
-            await this.restForm({id:0, name:"", email:"", password:""});
+            await this.restForm({id:0, name:"", email:"",club:"", password:""});
         },
         restForm(student){
             this.$store.commit("student/storeId", student.id);
             this.$store.commit("student/storeName", student.name);
             this.$store.commit("student/storeEmail", student.email);
+            this.$store.commit("student/storeClub", student.club);
             this.$store.commit("student/storePassword", student.password);
         },
     },

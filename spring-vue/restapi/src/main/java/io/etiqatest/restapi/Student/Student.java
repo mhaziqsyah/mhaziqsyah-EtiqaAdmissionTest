@@ -15,7 +15,7 @@ public class Student {
 
     public String name;
     public String email;
+    public String club;
     public String password;
-    
-    
+
 }

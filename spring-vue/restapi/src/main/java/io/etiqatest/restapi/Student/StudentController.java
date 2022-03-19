@@ -41,6 +41,7 @@ public class StudentController {
         oldStudent.setName(student.getName());
         oldStudent.setEmail(student.getEmail());
         oldStudent.setPassword(student.getPassword());
+        oldStudent.setClub(student.getClub());
         return repository.save(oldStudent);
     }
 
